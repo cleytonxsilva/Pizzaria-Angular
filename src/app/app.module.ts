@@ -20,6 +20,9 @@ import { ProdutodetailsComponent } from './components/produto/produtodetails/pro
 import { ProdutolistComponent } from './components/produto/produtolist/produtolist.component';
 import { SabordetailsComponent } from './components/sabor/sabordetails/sabordetails.component';
 import { SaborlistComponent } from './components/sabor/saborlist/saborlist.component';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -42,9 +45,11 @@ import { SaborlistComponent } from './components/sabor/saborlist/saborlist.compo
     SaborlistComponent
   ],
   imports: [
+    FormsModule,
     BrowserModule,
     AppRoutingModule,
-    NgbModule
+    NgbModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
