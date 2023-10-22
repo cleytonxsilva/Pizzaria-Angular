@@ -9,23 +9,20 @@ import { HttpClient } from '@angular/common/http';
 export class PedidoService {
 
   
-  API: string = 'http://localhost:8080/api/pedidos';
+  API: string = 'http://localhost:8080/pedidos';
   http = inject(HttpClient);
 
   constructor() { }
 
 
   listAll(): Observable<Pedido[]> {
-    return this.http.get<Pedido[]>(this.API);
+    return this.http.get<Pedido[]>(this.API + '/listar');
   }
 
   save(pedido: Pedido): Observable<Pedido> {
-    return this.http.post<Pedido>(this.API, pedido);
+    return this.http.post<Pedido>(this.API + '/cadastrar', pedido);
   }
 
-  exemploErro(): Observable<Pedido[]> {
-    return this.http.get<Pedido[]>(this.API + '/erro');
-  }
 
   /*
   CASO PRECISE ENVIAR REQUEST PARAMS, BASTA DECLARAR ASSIM E INCLUIR NA REQUISIÇÃO HTTP

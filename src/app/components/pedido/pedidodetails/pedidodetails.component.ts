@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output, inject } from '@angular/core';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
+import { Cliente } from 'src/app/models/cliente';
 import { Pedido } from 'src/app/models/pedido';
 import { Produto } from 'src/app/models/produto';
 import { PedidoService } from 'src/app/services/pedido.service';
@@ -44,18 +45,18 @@ export class PedidodetailsComponent {
 
   excluir(produto: Produto, indice: number) {
 
-    this.pedido.produtos.splice(indice,1);
-    
+    this.pedido.produtos.splice(indice, 1);
+
   }
 
   retornoProdutosList(produto: Produto) {
 
-    if (this.pedido.produtos == null)
+    if (this.pedido.produtos == null) {
       this.pedido.produtos = [];
-
-    this.pedido.produtos.push(produto);
-    this.modalRef.dismiss();
-}
+      this.pedido.produtos.push(produto);
+      this.modalRef.dismiss();
+    }
+  }
 
 
   lancar(modal: any) {

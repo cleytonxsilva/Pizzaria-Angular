@@ -5,7 +5,9 @@
             [(ngModel)]="pedido.descricao">
     </div>
 
-    <button type="button" class="btn btn-primary" (click)="lancar(modal1)">Lançar produto</button> 
+    <button type="button" class="btn btn-primary" (click)="lancar(modal1)">Lançar produto</button>
+    <label for="">cliente</label>
+    <input type="number" [(ngModel)]="pedido.cliente">
 
     <table class="table table-striped">
         <thead>

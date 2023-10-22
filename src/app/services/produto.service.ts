@@ -8,18 +8,18 @@ import { Produto } from '../models/produto';
 })
 export class ProdutoService {
 
-  API: string = 'http://localhost:8080/api/produtos';
+  API: string = 'http://localhost:8080/produtos';
   http = inject(HttpClient);
 
   constructor() { }
 
 
   listAll(): Observable<Produto[]> {
-    return this.http.get<Produto[]>(this.API);
+    return this.http.get<Produto[]>(this.API + '/listar');
   }
 
   save(produto: Produto): Observable<Produto> {
-    return this.http.post<Produto>(this.API, produto);
+    return this.http.post<Produto>(this.API + '/cadastrar', produto);
   }
 
   exemploErro(): Observable<Produto[]> {
