@@ -1,5 +1,5 @@
 <div class="container">
-    <h3 class="alert alert-primary">Funcionários:</h3>
+    <h2 class="alert alert-primary">Funcionários:</h2>
     <!-- <button type="button" class="btn btn-primary" (click)="adicionar(modal1)">Adicionar</button>  -->
     <div class="row">
         <div class="col-lg-12">
@@ -16,11 +16,11 @@
                 </thead>
                 <tbody>
                     <tr *ngFor="let funcionario of lista; let i = index">
-                        <th scope="row">{{ funcionario.id }}</th>
-                        <th scope="row">{{ funcionario.cpf }}</th>
-                        <th scope="row">{{ funcionario.nome }}</th>
-                        <th scope="row">{{ funcionario.telefone }}</th>
-                        <th scope="row">{{ funcionario.matricula }}</th>
+                        <td scope="row">{{ funcionario.id }}</td>
+                        <td scope="row">{{ funcionario.cpf }}</td>
+                        <td scope="row">{{ funcionario.nome }}</td>
+                        <td scope="row">{{ funcionario.telefone }}</td>
+                        <td scope="row">{{ funcionario.matricula }}</td>
                         <div>
                             <td> <button type="button" class="btn btn-warning">Editar</button></td>
                             <td> <button type="button" class="btn btn-danger">Excluir</button></td>

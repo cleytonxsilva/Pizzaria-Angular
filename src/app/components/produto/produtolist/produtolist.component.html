@@ -1,6 +1,6 @@
 <div class="container">
-    <h3 class="alert alert-primary">Produtos:</h3>
-     <button type="button" class="btn btn-primary" (click)="adicionar(modal1)">Adicionar</button> 
+    <h2 class="alert alert-primary">Produtos:</h2>
+    <button type="button" class="btn btn-primary" (click)="adicionar(modal1)">Adicionar</button>
     <div class="row">
         <div class="col-lg-12">
             <table class="table table-striped">
@@ -8,19 +8,21 @@
                     <tr>
                         <th scope="col">#ID</th>
                         <th scope="col">Nome</th>
-                        <th scope="col">Idade</th>
+                        <th scope="col">Valor</th>
                         <th scope="col">Ações</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr *ngFor="let produto of lista; let i = index">
-                        <th scope="row">{{ produto.id }}</th>
+                        <td scope="row">{{ produto.id }}</td>
                         <td> {{ produto.nome }} </td>
                         <td> {{ produto.valorProduto | number:'1.2-2' }} </td>
                         <div>
-                            <td *ngIf="!modoLancamento" > <button type="button" class="btn btn-warning" (click)="editar(modal1, produto, i)">Editar</button></td>
+                            <td *ngIf="!modoLancamento"> <button type="button" class="btn btn-warning"
+                                    (click)="editar(modal1, produto, i)">Editar</button></td>
                             <td><button type="button" class="btn btn-danger">Excluir</button> </td>
-                            <td *ngIf="modoLancamento" > <button type="button" class="btn btn-primary" (click)="lancamento( produto)">Lançar</button> </td>
+                            <td *ngIf="modoLancamento"> <button type="button" class="btn btn-primary"
+                                    (click)="lancamento( produto)">Lançar</button> </td>
                         </div>
                     </tr>
                 </tbody>
@@ -38,9 +40,10 @@
         <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
     </div>
     <div class="modal-body">
-       
-        <app-produtodetails [produto]="objetoSelecionadoParaEdicao" (retorno)="addOuEditarProduto($event)" ></app-produtodetails>
-        
+
+        <app-produtodetails [produto]="objetoSelecionadoParaEdicao"
+            (retorno)="addOuEditarProduto($event)"></app-produtodetails>
+
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>

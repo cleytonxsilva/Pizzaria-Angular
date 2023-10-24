@@ -1,6 +1,6 @@
 <div class="container">
-    <h3 class="alert alert-primary">Clientes:</h3>
-   <button type="button" class="btn btn-primary">Adicionar</button> 
+    <h2 class="alert alert-primary">Clientes:</h2>
+    <button type="button" class="btn btn-primary">Adicionar</button>
     <div class="row">
         <div class="col-lg-12">
             <table class="table table-striped">
@@ -17,15 +17,15 @@
                 </thead>
                 <tbody>
                     <tr *ngFor="let cliente of lista; let i = index">
-                        <th scope="row">{{ cliente.id }}</th>
-                        <th scope="row">{{ cliente.cpf }}</th>
-                        <th scope="row">{{ cliente.nome }}</th>
-                        <th scope="row">{{ cliente.idade }}</th>
-                        <th scope="row">{{ cliente.telefone }}</th>
-                        <th scope="row">{{ cliente.endereco }}</th>
+                        <td scope="row">{{ cliente.id }}</td>
+                        <td scope="row">{{ cliente.cpf }}</td>
+                        <td scope="row">{{ cliente.nome }}</td>
+                        <td scope="row">{{ cliente.idade }}</td>
+                        <td scope="row">{{ cliente.telefone }}</td>
+                        <td scope="row">{{ cliente.endereco }}</td>
                         <div>
-                        <td> <button type="button" class="btn btn-warning">Editar</button></td>
-                        <td> <button type="button" class="btn btn-danger">Excluir</button></td>
+                            <td> <button type="button" class="btn btn-warning">Editar</button></td>
+                            <td> <button type="button" class="btn btn-danger">Excluir</button></td>
                         </div>
                     </tr>
                 </tbody>

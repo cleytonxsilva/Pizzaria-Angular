@@ -1,4 +1,30 @@
-/* You can add global styles to this file, and also import other style files */
-
-/* Importing Bootstrap SCSS file. */
 @import 'bootstrap/scss/bootstrap';
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    max-height: 100vh;
+    font-family: 'Courier New', Courier, monospace, sans-serif;
+    text-decoration: none;
+}
+.container{
+    display: flex;
+    gap: 1rem;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-top: 1rem;
+    padding-bottom: 15rem;
+    width: 100vw;
+}
+#p-footer{
+    display: flex;
+    align-self: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    max-width: 50vw;
+}
+.btn{
+    width: 8rem;
+}
