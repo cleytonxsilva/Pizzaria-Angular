@@ -1,1 +1,33 @@
-<p>saborlist works!</p>
+<div class="container">
+    <h3 class="alert alert-primary">Sabores:</h3>
+    <!-- <button type="button" class="btn btn-primary" (click)="adicionar(modal1)">Adicionar</button>  -->
+    <div class="row">
+        <div class="col-lg-12">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">#ID</th>
+                        <th scope="col">Nome</th>
+                        <th scope="col">Produto</th>
+                        <th scope="col">Valor Sabor</th>
+                        <th scope="col">Descrição</th>
+                        <th scope="col">Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let sabor of lista; let i = index">
+                        <th scope="row">{{ sabor.id }}</th>
+                        <th scope="row">{{ sabor.nome }}</th>
+                        <th scope="row">{{ sabor.produto }}</th>
+                        <th scope="row">{{ sabor.valorSabor }}</th>
+                        <th scope="row">{{ sabor.descricao }}</th>
+                        <div>
+                            <td> <button type="button" class="btn btn-warning">Editar</button></td>
+                            <td> <button type="button" class="btn btn-danger">Excluir</button></td>
+                        </div>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

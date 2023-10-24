@@ -1,1 +1,27 @@
-<p>enderecolist works!</p>
+<div class="container">
+    <h3 class="alert alert-primary">Endereços:</h3>
+    <button type="button" class="btn btn-primary">Adicionar</button>
+    <div class="row">
+        <div class="col-lg-12">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">#ID</th>
+                        <th scope="col">Rua</th>
+                        <th scope="col">Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let endereco of lista; let i = index">
+                        <th scope="row">{{ endereco.id }}</th>
+                        <th scope="row">{{ endereco.rua }}</th>
+                        <div>
+                            <td> <button type="button" class="btn btn-warning">Editar</button></td>
+                            <td> <button type="button" class="btn btn-danger">Excluir</button></td>
+                        </div>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

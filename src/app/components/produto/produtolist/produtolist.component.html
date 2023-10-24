@@ -1,5 +1,5 @@
 <div class="container">
-    <h3 class="alert alert-primary">Listagem de produtos!</h3>
+    <h3 class="alert alert-primary">Produtos:</h3>
      <button type="button" class="btn btn-primary" (click)="adicionar(modal1)">Adicionar</button> 
     <div class="row">
         <div class="col-lg-12">
@@ -17,8 +17,11 @@
                         <th scope="row">{{ produto.id }}</th>
                         <td> {{ produto.nome }} </td>
                         <td> {{ produto.valorProduto | number:'1.2-2' }} </td>
-                        <td *ngIf="!modoLancamento" > <button type="button" class="btn btn-primary" (click)="editar(modal1, produto, i)">Editar</button> </td>
-                        <td *ngIf="modoLancamento" > <button type="button" class="btn btn-primary" (click)="lancamento( produto)">Lançar</button> </td>
+                        <div>
+                            <td *ngIf="!modoLancamento" > <button type="button" class="btn btn-warning" (click)="editar(modal1, produto, i)">Editar</button></td>
+                            <td><button type="button" class="btn btn-danger">Excluir</button> </td>
+                            <td *ngIf="modoLancamento" > <button type="button" class="btn btn-primary" (click)="lancamento( produto)">Lançar</button> </td>
+                        </div>
                     </tr>
                 </tbody>
             </table>

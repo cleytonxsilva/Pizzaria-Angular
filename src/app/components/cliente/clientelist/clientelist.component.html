@@ -1,6 +1,6 @@
 <div class="container">
     <h3 class="alert alert-primary">Clientes:</h3>
-   <!-- <button type="button" class="btn btn-primary" (click)="adicionar(modal1)">Adicionar</button>  -->
+   <button type="button" class="btn btn-primary">Adicionar</button> 
     <div class="row">
         <div class="col-lg-12">
             <table class="table table-striped">
@@ -23,9 +23,10 @@
                         <th scope="row">{{ cliente.idade }}</th>
                         <th scope="row">{{ cliente.telefone }}</th>
                         <th scope="row">{{ cliente.endereco }}</th>
-                        <td> <button type="button" class="btn btn-warning">Editar</button>
-                        <td> <button type="button" class="btn btn-danger">Excluir</button>
-                        </td>
+                        <div>
+                        <td> <button type="button" class="btn btn-warning">Editar</button></td>
+                        <td> <button type="button" class="btn btn-danger">Excluir</button></td>
+                        </div>
                     </tr>
                 </tbody>
             </table>

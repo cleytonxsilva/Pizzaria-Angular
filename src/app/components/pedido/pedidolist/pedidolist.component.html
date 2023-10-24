@@ -1,23 +1,40 @@
 <div class="container">
-    <h3 class="alert alert-primary">Listagem de pedidos!</h3>
-   <button type="button" class="btn btn-primary" (click)="adicionar(modal1)">Adicionar</button> 
+    <h3 class="alert alert-primary">Pedidos:</h3>
+    <button type="button" class="btn btn-primary" (click)="adicionar(modal1)">Adicionar</button>
     <div class="row">
         <div class="col-lg-12">
             <table class="table table-striped">
                 <thead>
                     <tr>
                         <th scope="col">#ID</th>
+                        <th scope="col">Nº Pedido</th>
+                        <th scope="col">Entregar</th>
+                        <th scope="col">Cliente</th>
+                        <th scope="col">Produtos</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Valor total</th>
+                        <th scope="col">Funcionário</th>
                         <th scope="col">Descrição</th>
                         <th scope="col">Ações</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr *ngFor="let pedido of lista; let i = index">
-                        <th scope="row">{{ pedido.id }}</th>
+                        <td scope="row">{{ pedido.id }}</td>
+                        <td> {{ pedido.numeroPedido }} </td>
+                        <td> {{ pedido.entregar }} </td>
+                        <td> {{ pedido.cliente }} </td>
+                        <td> {{ pedido.produtos }} </td>
+                        <td> {{ pedido.estado }} </td>
+                        <td> {{ pedido.valorTotal }} </td>
+                        <td> {{ pedido.funcionario }} </td>
                         <td> {{ pedido.descricao }} </td>
-                        <td> <button type="button" class="btn btn-warning" (click)="editar(modal1, pedido, i)">Editar</button>
-                        <td> <button type="button" class="btn btn-danger" (click)="excluir(pedido.id)">Excluir</button>
-                        </td>
+                        <div>
+                            <td> <button type="button" class="btn btn-warning"
+                                    (click)="editar(modal1, pedido, i)">Editar</button></td>
+                            <td> <button type="button" class="btn btn-danger"
+                                    (click)="excluir(pedido.id)">Excluir</button></td>
+                        </div>
                     </tr>
                 </tbody>
             </table>
@@ -31,9 +48,10 @@
         <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
     </div>
     <div class="modal-body">
-       
-        <app-pedidodetails [pedido]="objetoSelecionadoParaEdicao" (retorno)="addOuEditarPedido($event)" ></app-pedidodetails>
-        
+
+        <app-pedidodetails [pedido]="objetoSelecionadoParaEdicao"
+            (retorno)="addOuEditarPedido($event)"></app-pedidodetails>
+
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
