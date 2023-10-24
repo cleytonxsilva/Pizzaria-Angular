@@ -1,6 +1,5 @@
 import { Component, inject } from '@angular/core';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
-import { Cliente } from 'src/app/models/cliente';
 import { Pedido } from 'src/app/models/pedido';
 import { PedidoService } from 'src/app/services/pedido.service';
 
@@ -33,7 +32,7 @@ export class PedidolistComponent {
         this.lista = lista;
       },
       error: erro => { // QUANDO DÁ ERRO
-        alert('Exemplo de tratamento de erro/exception! Observe o erro no console!');
+        alert('Deu erro! Observe o erro no console.');
         console.error(erro);
       }
     });
