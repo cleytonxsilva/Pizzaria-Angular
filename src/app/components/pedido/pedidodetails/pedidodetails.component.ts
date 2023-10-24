@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, Output, inject } from '@angular/core';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { Cliente } from 'src/app/models/cliente';
+import { Estado } from 'src/app/models/enums/estado';
 import { Pedido } from 'src/app/models/pedido';
 import { Produto } from 'src/app/models/produto';
 import { PedidoService } from 'src/app/services/pedido.service';
@@ -19,6 +20,7 @@ export class PedidodetailsComponent {
   modalRef!: NgbModalRef;
 
   pedidoService = inject(PedidoService);
+  isEdit!: string;
 
 
   constructor() {
@@ -26,23 +28,30 @@ export class PedidodetailsComponent {
   }
 
   salvar() {
-    //ISSO AQUI SERVE PARA EDITAR OU ADICIONAR... TANTO FAZ
-
-    this.pedidoService.save(this.pedido).subscribe({
-      next: pedido => { // QUANDO DÁ CERTO
-        this.retorno.emit(pedido);
-      },
-      error: erro => { // QUANDO DÁ ERRO
-        alert('Exemplo de tratamento de erro/exception! Observe o erro no console!');
-        console.error(erro);
-      }
-    });
-
-
-
+    this.pedido.id > 0;
+    if (this.isEdit) {
+      // Modo de edição
+      this.pedidoService.update(this.pedido).subscribe({
+        next: pedido => {
+          this.retorno.emit(pedido);
+        },
+        error: erro => {
+          alert('Deu erro! Observe o erro no console!');
+          console.error(erro);
+        }
+      });
+    } else {
+      this.pedidoService.save(this.pedido).subscribe({
+        next: pedido => {
+          this.retorno.emit(pedido);
+        },
+        error: erro => {
+          alert('Deu erro! Observe o erro no console!');
+          console.error(erro);
+        }
+      });
+    }
   }
-
-
   excluir(produto: Produto, indice: number) {
 
     this.pedido.produtos.splice(indice, 1);
@@ -55,7 +64,12 @@ export class PedidodetailsComponent {
       this.pedido.produtos = [];
       this.pedido.produtos.push(produto);
       this.modalRef.dismiss();
+
+      if (this.pedido.cliente == null) {
+        this.pedido.cliente = new Cliente(); ///CLIENTE NULO
+      }
     }
+  
   }
 
 

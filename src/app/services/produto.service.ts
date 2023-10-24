@@ -21,8 +21,4 @@ export class ProdutoService {
   save(produto: Produto): Observable<Produto> {
     return this.http.post<Produto>(this.API + '/cadastrar', produto);
   }
-
-  exemploErro(): Observable<Produto[]> {
-    return this.http.get<Produto[]>(this.API + '/erro');
-  }
 }

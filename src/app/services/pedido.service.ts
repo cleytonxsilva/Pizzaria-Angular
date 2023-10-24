@@ -8,7 +8,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class PedidoService {
 
-  
+
   API: string = 'http://localhost:8080/pedidos';
   http = inject(HttpClient);
 
@@ -23,6 +23,12 @@ export class PedidoService {
     return this.http.post<Pedido>(this.API + '/cadastrar', pedido);
   }
 
+  update(pedido: Pedido): Observable<Pedido> {
+    return this.http.put<Pedido>(`${this.API}/${pedido.id}`, pedido);
+  }
+  delete(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.API}/${id}`);
+  }
 
   /*
   CASO PRECISE ENVIAR REQUEST PARAMS, BASTA DECLARAR ASSIM E INCLUIR NA REQUISIÇÃO HTTP

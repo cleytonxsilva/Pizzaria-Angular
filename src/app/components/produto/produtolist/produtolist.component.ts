@@ -26,8 +26,6 @@ export class ProdutolistComponent {
   constructor() {
 
     this.listAll();
-    //this.exemploErro();
-
   }
 
   listAll() {
@@ -43,21 +41,6 @@ export class ProdutolistComponent {
     });
 
   }
-
-  exemploErro() {
-
-    this.produtoService.exemploErro().subscribe({
-      next: lista => { // QUANDO DÁ CERTO
-        this.lista = lista;
-      },
-      error: erro => { // QUANDO DÁ ERRO
-        alert('Exemplo de tratamento de erro/exception! Observe o erro no console!');
-        console.error(erro);
-      }
-    });
-
-  }
-
   // MÉTODOS DA MODAL
 
   adicionar(modal: any) {
