@@ -1,6 +1,6 @@
 <div class="container">
     <h2 class="alert alert-primary">Sabores:</h2>
-    <!-- <button type="button" class="btn btn-primary" (click)="adicionar(modal1)">Adicionar</button>  -->
+    <button type="button" class="btn btn-primary" (click)="adicionar(modal1)">Adicionar</button> 
     <div class="row">
         <div class="col-lg-12">
             <table class="table table-striped">
@@ -8,8 +8,6 @@
                     <tr>
                         <th scope="col">#ID</th>
                         <th scope="col">Nome</th>
-                        <th scope="col">Produto</th>
-                        <th scope="col">Valor Sabor</th>
                         <th scope="col">Descrição</th>
                         <th scope="col">Ações</th>
                     </tr>
@@ -18,16 +16,28 @@
                     <tr *ngFor="let sabor of lista; let i = index">
                         <th scope="row">{{ sabor.id }}</th>
                         <th scope="row">{{ sabor.nome }}</th>
-                        <th scope="row">{{ sabor.produto }}</th>
-                        <th scope="row">{{ sabor.valorSabor }}</th>
                         <th scope="row">{{ sabor.descricao }}</th>
                         <div>
-                            <td> <button type="button" class="btn btn-warning">Editar</button></td>
-                            <td> <button type="button" class="btn btn-danger">Excluir</button></td>
+                            <td> <button type="button" class="btn btn-warning"(click)="editar(modal1, sabor, i)" >Editar</button></td>
+                            <td> <button type="button" class="btn btn-danger" (click)="excluir(sabor.id)">Excluir</button></td>
                         </div>
                     </tr>
                 </tbody>
             </table>
         </div>
     </div>
+    <ng-template #modal1 let-modal>
+        <div class="modal-header">
+            <h4 class="modal-title">Modal title</h4>
+            <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+        </div>
+        <div class="modal-body">
+    
+            <app-sabordetails [sabor]="objetoSelecionadoParaEdicao" (retorno)="addOuEditarProduto($event)"></app-sabordetails>
+    
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+        </div>
+    </ng-template>
 </div>

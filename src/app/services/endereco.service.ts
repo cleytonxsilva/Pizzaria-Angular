@@ -17,4 +17,14 @@ export class EnderecoService{
   listAll(): Observable<Endereco[]> {
     return this.http.get<Endereco[]>(this.API + '/listar');
   }
+  save(endereco: Endereco): Observable<Endereco> {
+    return this.http.post<Endereco>(this.API + '/cadastrar', endereco);
+  }
+
+  update(endereco: Endereco): Observable<Endereco> {
+    return this.http.put<Endereco>(`${this.API}/${endereco.id}`, endereco);
+  }
+  delete(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.API}/${id}`);
+  }
 }

@@ -12,23 +12,37 @@ export class ProdutodetailsComponent {
   @Output() retorno = new EventEmitter<Produto>();
 
   produtoService = inject(ProdutoService);
-
+  isEdit = false; 
 
   constructor() {
 
   }
 
-  salvar() {
-    //ISSO AQUI SERVE PARA EDITAR OU ADICIONAR... TANTO FAZ
+  ngOnInit() {
+    this.isEdit = this.produto.id > 0; 
+  }
 
-    this.produtoService.save(this.produto).subscribe({
-      next: produto => { // QUANDO DÁ CERTO
-        this.retorno.emit(produto);
-      },
-      error: erro => { // QUANDO DÁ ERRO
-        alert('Exemplo de tratamento de erro/exception! Observe o erro no console!');
-        console.error(erro);
-      }
-    });
+  salvar() {
+    if (this.isEdit) {
+      this.produtoService.update(this.produto).subscribe({
+        next: produto => {
+          this.retorno.emit(produto);
+        },
+        error: erro => {
+          alert('Deu erro! Observe o erro no console!');
+          console.error(erro);
+        }
+      });
+    } else {
+      this.produtoService.save(this.produto).subscribe({
+        next: produto => {
+          this.retorno.emit(produto);
+        },
+        error: erro => {
+          alert('Deu erro! Observe o erro no console!');
+          console.error(erro);
+        }
+      });
+    }
   }
 }

@@ -17,4 +17,15 @@ export class SaborService {
   listAll(): Observable<Sabor[]> {
     return this.http.get<Sabor[]>(this.API + '/listar');
   }
+
+  save(sabor: Sabor): Observable<Sabor> {
+    return this.http.post<Sabor>(this.API + '/cadastrar', sabor);
+  }
+
+  update(sabor: Sabor): Observable<Sabor> {
+    return this.http.put<Sabor>(`${this.API}/${sabor.id}`, sabor);
+  }
+  delete(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.API}/${id}`);
+  }
 }

@@ -11,7 +11,6 @@ import { PedidoService } from 'src/app/services/pedido.service';
 export class PedidolistComponent {
   lista: Pedido[] = [];
 
-
   objetoSelecionadoParaEdicao: Pedido = new Pedido();
   indiceSelecionadoParaEdicao!: number;
 

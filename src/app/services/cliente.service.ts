@@ -17,4 +17,14 @@ export class ClienteService {
   listAll(): Observable<Cliente[]> {
     return this.http.get<Cliente[]>(this.API + '/listar');
   }
+  save(cliente: Cliente): Observable<Cliente> {
+    return this.http.post<Cliente>(this.API + '/cadastrar', cliente);
+  }
+
+  update(cliente: Cliente): Observable<Cliente> {
+    return this.http.put<Cliente>(`${this.API}/${cliente.id}`, cliente);
+  }
+  delete(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.API}/${id}`);
+  }
 }

@@ -21,4 +21,11 @@ export class ProdutoService {
   save(produto: Produto): Observable<Produto> {
     return this.http.post<Produto>(this.API + '/cadastrar', produto);
   }
+
+  update(produto: Produto): Observable<Produto> {
+    return this.http.put<Produto>(`${this.API}/${produto.id}`, produto);
+  }
+  delete(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.API}/${id}`);
+  }
 }

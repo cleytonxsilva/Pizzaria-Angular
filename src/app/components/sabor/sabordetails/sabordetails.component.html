@@ -1,1 +1,17 @@
-<p>sabordetails works!</p>
+<form (ngSubmit)="salvar()">
+    <div class="mb-3">
+        <label for="exampleInputText1" class="form-label">Nome:</label>
+        <input type="text" class="form-control" name="exampleInputText1" aria-describedby="emailHelp"
+            [(ngModel)]="sabor.nome">
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Valor:</label>
+        <input type="number" class="form-control" name="exampleInputNumer1" [(ngModel)]="sabor.valorSabor">
+    </div>
+    <div class="mb-3">
+        <LAbel>Descrição:</LAbel>
+        <input type="text" class="form-control" name="exampleInputText2" aria-describedby="emailHelp" [(ngModel)]="sabor.descricao">
+
+    </div>
+    <button type="submit" class="btn btn-primary">Salvar</button>
+</form>

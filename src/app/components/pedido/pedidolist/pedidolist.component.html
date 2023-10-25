@@ -7,7 +7,7 @@
                 <thead>
                     <tr>
                         <th scope="col">#ID</th>
-                        <th scope="col">Nº Pedido</th>
+                        <th scope="col">Pedido</th>
                         <th scope="col">Entregar</th>
                         <th scope="col">Cliente</th>
                         <th scope="col">Produtos</th>
@@ -23,11 +23,11 @@
                         <td scope="row">{{ pedido.id }}</td>
                         <td> {{ pedido.numeroPedido }} </td>
                         <td> {{ pedido.entregar }} </td>
-                        <td> {{ pedido.cliente }} </td>
+                        <td> {{ pedido.cliente.nome }} </td>
                         <td> {{ pedido.produtos }} </td>
                         <td> {{ pedido.estado }} </td>
                         <td> {{ pedido.valorTotal }} </td>
-                        <td> {{ pedido.funcionario }} </td>
+                        <td> {{ pedido.funcionario.nome }} </td>
                         <td> {{ pedido.descricao }} </td>
                         <div>
                             <td> <button type="button" class="btn btn-warning"

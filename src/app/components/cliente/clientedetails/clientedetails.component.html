@@ -1,1 +1,52 @@
-<p>clientedetails works!</p>
+<form (ngSubmit)="salvar()">
+    <div>
+        <label>Nome:</label>
+        <input type="text" class="form-control" name="exampleInputText1" [(ngModel)]="cliente.nome">
+
+        <label>CPF:</label>
+        <input type="text" class="form-control" name="exampleInputText2" [(ngModel)]="cliente.cpf">
+
+        <label>Idade:</label>
+        <input type="number" class="form-control" name="exampleInputText2" [(ngModel)]="cliente.idade">
+
+        <label>Telefone:</label>
+        <input type="text" class="form-control" name="exampleInputText2" [(ngModel)]="cliente.telefone">
+        
+        <button type="button" class="btn btn-primary" (click)="lancar(modal1)">Adicionar Endereço</button>
+
+        <table>
+            <thead>
+                <tr>
+                    <th scope="col">#ID</th>
+                    <th scope="col">Rua</th>
+                    <th scope="col">Número</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let endereco of cliente.endereco; let i = index">
+                    <th scope="row">{{ endereco.id }}</th>
+                    <td> {{ endereco.rua }} </td>
+                    <td> {{ endereco.numero }} </td>
+                    <td> <button type="button" class="btn btn-primary" (click)="excluir(endereco, i)">Excluir</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <button type="submit" class="btn btn-primary">Salvar</button>
+    </div>
+</form>
+
+<ng-template #modal1 let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title">Modal title</h4>
+        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+
+        <app-enderecolist [modoLancamento]="true" (retorno)="retornoEnderecosList($event)"></app-enderecolist>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+    </div>
+</ng-template>

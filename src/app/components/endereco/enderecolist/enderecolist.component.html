@@ -1,6 +1,6 @@
 <div class="container">
     <h2 class="alert alert-primary">Endereços:</h2>
-    <button type="button" class="btn btn-primary">Adicionar</button>
+    <button type="button" class="btn btn-primary" (click)="adicionar(modal1)">Adicionar</button>
     <div class="row">
         <div class="col-lg-12">
             <table class="table table-striped">
@@ -16,12 +16,26 @@
                         <td scope="row">{{ endereco.id }}</td>
                         <td scope="row">{{ endereco.rua }}</td>
                         <div>
-                            <td> <button type="button" class="btn btn-warning">Editar</button></td>
-                            <td> <button type="button" class="btn btn-danger">Excluir</button></td>
+                            <td> <button type="button" class="btn btn-warning"  (click)="editar(modal1, endereco, i)">Editar</button></td>
+                            <td> <button type="button" class="btn btn-danger" (click)="excluir(endereco.id)">Excluir</button></td>
                         </div>
                     </tr>
                 </tbody>
             </table>
         </div>
     </div>
+    <ng-template #modal1 let-modal>
+        <div class="modal-header">
+            <h4 class="modal-title">Modal title</h4>
+            <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+        </div>
+        <div class="modal-body">
+           
+          <app-enderecodetails [endereco]="EnderecoSelecionadoParaEdicao" (retorno)="addOuEditarEndereco($event)" ></app-enderecodetails>
+            
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+        </div>
+      </ng-template>
 </div>

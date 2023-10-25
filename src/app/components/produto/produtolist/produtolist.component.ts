@@ -56,6 +56,19 @@ export class ProdutolistComponent {
 
     this.modalRef = this.modalService.open(modal, { size: 'sm' });
   }
+  excluir(id: number) {
+    if (confirm('Deseja realmente excluir este produto?')) {
+      this.produtoService.delete(id).subscribe({
+        next: () => {
+          this.lista = this.lista.filter(produto => produto.id !== id);
+        },
+        error: erro => {
+          alert('Ocorreu um erro ao excluir o produto. Confira o console para mais informações.');
+          console.error(erro);
+        }
+      });
+    }
+  }
 
   addOuEditarProduto(produto: Produto) {
 

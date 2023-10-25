@@ -1,1 +1,14 @@
-<p>enderecodetails works!</p>
+<form (ngSubmit)="salvar()">
+  <div>
+    <label>rua:</label>
+    <input type="text" class="form-control" name="exampleInputText1" [(ngModel)]="endereco.rua">
+
+    <label>numero:</label>
+    <input type="number" class="form-control" name="exampleInputNumber2" [(ngModel)]="endereco.numero">
+
+    <br><br>
+
+    <button type="submit" class="btn btn-primary">Salvar</button>
+  </div>
+
+</form>

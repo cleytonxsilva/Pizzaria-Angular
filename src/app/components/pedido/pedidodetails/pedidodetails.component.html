@@ -5,11 +5,20 @@
             [(ngModel)]="pedido.descricao">
     </div>
 
-    <button type="button" class="btn btn-primary" (click)="lancar(modal1)">Lançar produto</button>
-    <label for="">cliente</label>
-    <input type="text" [(ngModel)]="pedido.cliente">
+    <button type="button" class="btn btn-primary" (click)="lancar(modalPedido)">Lançar produto</button>
+    <br>
+    <label for="">Cliente</label>
+    <br>
+    <input type="number" [(ngModel)]="pedido.cliente">
+    <br>
     <label for="">Estado</label>
-    <input type="text" [(ngModel)]="pedido.estado">
+    <select class="form-control" name="tamanho" [(ngModel)]="pedido.estado">
+        <option value="AGUARDANDO_PREPARO">AGUARDANDO_PREPARO</option>
+        <option value="PREPARANDO">PREPARANDO</option>
+        <option value="PRONTO">PRONTO</option>
+        <option value="EM_ENTREGA">EM_ENTREGA</option>
+        <option value="ENTREGUE">ENTREGUE</option>
+      </select>
 
     <table class="table table-striped">
         <thead>
@@ -38,7 +47,7 @@
 
 
 
-<ng-template #modal1 let-modal>
+<ng-template #modalPedido let-modal>
     <div class="modal-header">
         <h4 class="modal-title">Modal title</h4>
         <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>

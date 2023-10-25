@@ -6,11 +6,16 @@
     </div>
     <div class="mb-3">
         <label for="exampleInputPassword1" class="form-label">Valor:</label>
-        <input type="number" class="form-control" name="exampleInputPassword1" [(ngModel)]="produto.valorProduto">
+        <input type="number" class="form-control" name="exampleInputNumer1" [(ngModel)]="produto.valorProduto">
     </div>
     <div class="mb-3">
-        <label for="exampleInputPassword1" class="form-label">Tamanho:</label>
-        <input type="text" class="form-control" name="exampleInputPassword1" [(ngModel)]="produto.tamanho">
+        <LAbel>Tamanho:</LAbel>
+        <select class="form-control" name="tamanho" [(ngModel)]="produto.tamanho">
+            <option value="PEQUENA">PEQUENA</option>
+            <option value="MEDIA">MEDIA</option>
+            <option value="GRANDE">GRANDE</option>
+            <option value="GIGANTE">GIGANTE</option>
+          </select>
     </div>
     <button type="submit" class="btn btn-primary">Salvar</button>
 </form>

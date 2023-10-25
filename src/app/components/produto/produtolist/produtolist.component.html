@@ -20,7 +20,7 @@
                         <div>
                             <td *ngIf="!modoLancamento"> <button type="button" class="btn btn-warning"
                                     (click)="editar(modal1, produto, i)">Editar</button></td>
-                            <td><button type="button" class="btn btn-danger">Excluir</button> </td>
+                            <td><button type="button" class="btn btn-danger" (click)="excluir(produto.id)">Excluir</button> </td>
                             <td *ngIf="modoLancamento"> <button type="button" class="btn btn-primary"
                                     (click)="lancamento( produto)">Lançar</button> </td>
                         </div>

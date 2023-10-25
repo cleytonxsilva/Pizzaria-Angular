@@ -1,1 +1,22 @@
-<p>funcionariodetails works!</p>
+<form (ngSubmit)="salvar()">
+    <div>
+        <label>Nome:</label>
+        <input type="text" class="form-control" name="exampleInputText1"
+         [(ngModel)]="funcionario.nome">
+
+        <label>CPF:</label>
+        <input type="text" class="form-control" name="exampleInputText2"
+         [(ngModel)]="funcionario.cpf">
+
+         <label>Telefone:</label>
+         <input type="number" class="form-control" name="exampleInputNumber1"
+          [(ngModel)]="funcionario.telefone">
+         <label>Matricula:</label>
+         <input type="number" class="form-control" name="exampleInputNumber2"
+          [(ngModel)]="funcionario.matricula">
+      <br><br>
+      
+        <button type="submit" class="btn btn-primary">Salvar</button>
+      </div>
+      
+    </form>

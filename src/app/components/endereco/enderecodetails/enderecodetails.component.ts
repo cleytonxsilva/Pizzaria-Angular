@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output, inject } from '@angular/core';
+import { Endereco } from 'src/app/models/endereco';
+import { EnderecoService } from 'src/app/services/endereco.service';
 
 @Component({
   selector: 'app-enderecodetails',
@@ -6,5 +8,42 @@ import { Component } from '@angular/core';
   styleUrls: ['./enderecodetails.component.scss']
 })
 export class EnderecodetailsComponent {
+  @Input() endereco: Endereco = new Endereco();
+  @Output() retorno = new EventEmitter<Endereco>();
 
+  enderecoService = inject(EnderecoService);
+  isEdit = false; 
+
+  constructor() {
+
+  }
+
+  ngOnInit() {
+    this.isEdit = this.endereco.id > 0; 
+  }
+
+  salvar() {
+    if (this.isEdit) {
+      // Modo de edição
+      this.enderecoService.update(this.endereco).subscribe({
+        next: endereco => {
+          this.retorno.emit(endereco);
+        },
+        error: erro => {
+          alert('Deu erro! Observe o erro no console!');
+          console.error(erro);
+        }
+      });
+    } else {
+      this.enderecoService.save(this.endereco).subscribe({
+        next: endereco => {
+          this.retorno.emit(endereco);
+        },
+        error: erro => {
+          alert('Deu erro! Observe o erro no console!');
+          console.error(erro);
+        }
+      });
+    }
+  }
 }

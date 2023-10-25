@@ -17,4 +17,14 @@ export class FuncionarioService {
   listAll(): Observable<Funcionario[]> {
     return this.http.get<Funcionario[]>(this.API + '/listar');
   }
+  save(funcionario: Funcionario): Observable<Funcionario> {
+    return this.http.post<Funcionario>(this.API + '/cadastrar', funcionario);
+  }
+
+  update(funcionario: Funcionario): Observable<Funcionario> {
+    return this.http.put<Funcionario>(`${this.API}/${funcionario.id}`, funcionario);
+  }
+  delete(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.API}/${id}`);
+  }
 }
