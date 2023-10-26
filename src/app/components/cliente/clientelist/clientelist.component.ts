@@ -60,7 +60,6 @@ export class ClientelistComponent {
 
     this.listAll();
 
-  
 
     this.modalService.dismissAll();
 

@@ -23,17 +23,19 @@
                         <td scope="row">{{ pedido.id }}</td>
                         <td> {{ pedido.numeroPedido }} </td>
                         <td> {{ pedido.entregar }} </td>
-                        <td> {{ pedido.cliente.nome }} </td>
+                        <td> {{ pedido.cliente!.nome }} </td>
                         <td> {{ pedido.produtos }} </td>
                         <td> {{ pedido.estado }} </td>
                         <td> {{ pedido.valorTotal }} </td>
-                        <td> {{ pedido.funcionario.nome }} </td>
+                        <td> {{ pedido.funcionario!.nome }} </td>
                         <td> {{ pedido.descricao }} </td>
                         <div>
-                            <td> <button type="button" class="btn btn-warning"
-                                    (click)="editar(modal1, pedido, i)">Editar</button></td>
-                            <td> <button type="button" class="btn btn-danger"
-                                    (click)="excluir(pedido.id)">Excluir</button></td>
+                            <td>
+                                <button type="button" class="btn btn-warning"(click)="editar(modal1, pedido, i)">Editar</button>
+                            </td>
+                            <td>
+                                <button type="button" class="btn btn-danger"(click)="excluir(pedido.id?pedido.id:0)">Excluir</button>
+                            </td>
                         </div>
                     </tr>
                 </tbody>

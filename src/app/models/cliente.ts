@@ -11,3 +11,12 @@ export class Cliente {
 
 }
 
+export class ClienteDTO {
+    id?: number;
+    cpf?: string;
+    nome?: string;
+    idade?: number;
+    telefone?: string;
+    endereco?: Endereco[];
+}
+

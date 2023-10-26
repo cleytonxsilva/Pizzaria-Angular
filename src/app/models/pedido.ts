@@ -1,18 +1,18 @@
-import { Cliente } from "./cliente";
+import { ClienteDTO } from "./cliente";
 import { Estado } from "./enums/estado";
-import { Funcionario } from "./funcionario";
+import { FuncionarioDTO } from "./funcionario";
 import { Produto } from "./produto";
 
 export class Pedido {
 
-    id!: number;
-    numeroPedido!: number;
-    entregar!: boolean;
-    cliente!: Cliente;
-    produtos!: Produto[];
-    estado!: Estado;
-    valorTotal!: number;
-    descricao!: string;
-    funcionario!: Funcionario;
+    id?: number;
+    numeroPedido?: number;
+    entregar?: boolean;
+    cliente?: ClienteDTO;
+    produtos?: Produto[];
+    estado?: Estado;
+    valorTotal?: number = 0;
+    descricao?: string;
+    funcionario?: FuncionarioDTO;
 
 }

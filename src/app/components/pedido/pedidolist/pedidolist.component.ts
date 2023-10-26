@@ -48,6 +48,7 @@ export class PedidolistComponent {
   }
 
   editar(modal: any, pedido: Pedido, indice: number) {
+    console.log(pedido);
     this.objetoSelecionadoParaEdicao = Object.assign({}, pedido);
     this.indiceSelecionadoParaEdicao = indice;
     

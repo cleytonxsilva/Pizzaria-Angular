@@ -1,16 +1,16 @@
 <form (ngSubmit)="salvar()">
     <div>
         <label>Nome:</label>
-        <input type="text" class="form-control" name="exampleInputText1" [(ngModel)]="cliente.nome">
+        <input type="text" class="form-control" name="InputText1" [(ngModel)]="cliente.nome">
 
         <label>CPF:</label>
-        <input type="text" class="form-control" name="exampleInputText2" [(ngModel)]="cliente.cpf">
+        <input type="text" class="form-control" name="InputText2" [(ngModel)]="cliente.cpf">
 
         <label>Idade:</label>
-        <input type="number" class="form-control" name="exampleInputText2" [(ngModel)]="cliente.idade">
+        <input type="number" class="form-control" name="InputNumber2" [(ngModel)]="cliente.idade">
 
         <label>Telefone:</label>
-        <input type="text" class="form-control" name="exampleInputText2" [(ngModel)]="cliente.telefone">
+        <input type="text" class="form-control" name="InputText3" [(ngModel)]="cliente.telefone">
         
         <button type="button" class="btn btn-primary" (click)="lancar(modal1)">Adicionar Endereço</button>
 

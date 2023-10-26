@@ -5,13 +5,16 @@
             [(ngModel)]="pedido.descricao">
     </div>
 
-    <button type="button" class="btn btn-primary" (click)="lancar(modalPedido)">Lançar produto</button>
+    <button type="button" class="btn btn-primary" (click)="lancar(modalPedido)">Adicionar produto:</button>
     <br>
-    <label for="">Cliente</label>
     <br>
-    <input type="number" [(ngModel)]="pedido.cliente">
+    <label for="">Funcionário:</label>
+    <input type="number" [(ngModel)]="funcionarioId" name="funcionarioId" placeholder="Insira o ID do funcionário">
     <br>
-    <label for="">Estado</label>
+    <label for="">Cliente:</label>
+    <input type="number" [(ngModel)]="clienteId" name="clienteId" placeholder="Insira o ID do cliente">
+    <br>
+    <label for="">Status do Pedido:</label>
     <select class="form-control" name="tamanho" [(ngModel)]="pedido.estado">
         <option value="AGUARDANDO_PREPARO">AGUARDANDO_PREPARO</option>
         <option value="PREPARANDO">PREPARANDO</option>
@@ -34,14 +37,18 @@
                 <th scope="row">{{ produto.id }}</th>
                 <td> {{ produto.nome }} </td>
                 <td> {{ produto.valorProduto }} </td>
-                <td> <button type="button" class="btn btn-primary" (click)="excluir(produto,i)">Excluir</button> </td>
-            </tr>
+                <td> <button type="button" class="btn btn-primary" (click)="excluir(produto, i)">Excluir</button> </td>
+              </tr>
         </tbody>
     </table>
-
-
-
+    <br>
+    <label for="">Valor total:</label>
+    <input type="number" name="valorTotal" [(ngModel)]="pedido.valorTotal"> <!--(ngModelChange)="calcularValorTotal()">
+    -->
+    <br>
     <button type="submit" class="btn btn-primary">Salvar</button>
+    <br>
+    
 </form>
 
 
